@@ -17,8 +17,8 @@ class Particle extends React.Component {
   }
 
   draw(p5) {
-    p5.noStroke();
-    p5.fill(`rgba(255, 255, 255, 0.5)`);
+    p5.stroke("#00FFFF");
+    p5.fill("salmon");
     p5.circle(this.pos.x, this.pos.y, this.size * 2);
   }
 
@@ -41,14 +41,6 @@ class Particle extends React.Component {
       }
     });
   }
-
-  createPos(p5) {
-    return p5.createVector(p5.random(p5.width), p5.random(p5.height));
-  }
-
-  createVelocity(p5) {
-    return p5.createVector(p5.random(-2, 2), p5.random(-2, 2));
-  }
 }
 
 export default function App() {
@@ -65,7 +57,7 @@ export default function App() {
   };
 
   const draw = (p5) => {
-    p5.background("salmon");
+    p5.background("#000");
 
     particles.forEach((particle, idx) => {
       particle.update(p5);
